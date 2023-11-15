@@ -31,7 +31,7 @@ function App() {
     try {
       const response = await Axios.get("http://127.0.0.1:3001/userroutes/select");
       const users = response.data.response;
-      // users.reverse();
+      users.reverse();
       setUsers(users);
       console.log('Users:', users);
       // Do something with the users (e.g., update UI)
