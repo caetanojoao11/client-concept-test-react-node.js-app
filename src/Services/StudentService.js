@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 
-const getUsers = async () => {
+const getStudents = async () => {
     try {
         const response = await Axios.get("https://localhost:7046/api/Student");
         return response;
@@ -26,9 +26,27 @@ const addStudent = async (student) => {
     }
 }
 
+const deleteStudent = async (idStudent) => {
+    try {
+        await Axios.delete(`https://localhost:7046/api/Student/${idStudent}`)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const updateStudent = async (student) => {
+    try {
+        await Axios.put("https://localhost:7046/api/Student", student);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const studentService = {
-    getUsers,
+    getStudents,
     addStudent,
+    deleteStudent,
+    updateStudent
 };
 
 export default studentService;
